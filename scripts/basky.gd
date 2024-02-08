@@ -10,16 +10,18 @@ var acceleration = 10000
 
 var mouse_pos = []
 
+func _process(delta):
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info and not Input.is_action_pressed("jump"):
+		velocity = velocity.bounce(collision_info.get_normal())
+		print(collision_info.get_normal())
+		velocity.x *= 0.5
+		velocity.y *= 0.5
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info and not Input.is_action_pressed("jump"):
-		velocity = velocity.bounce(collision_info.get_normal())
-		velocity.x *= 0.7
-		velocity.y *= 0.7
 		
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -40,20 +42,14 @@ func _physics_process(delta):
 	# debug statements
 	if Input.is_action_just_pressed("left_mouse_button") and len(mouse_pos) < 1:
 		mouse_pos.append(DisplayServer.mouse_get_position())
-		print(mouse_pos)
 		
 	if Input.is_action_just_released("left_mouse_button") and len(mouse_pos):
 		mouse_pos.append(DisplayServer.mouse_get_position())
-		print(mouse_pos)
 		
 		velocity.x = (mouse_pos[0][0] - mouse_pos[1][0]) * 5
 		velocity.y = (mouse_pos[0][1] - mouse_pos[1][1]) * 5
 		
-		print("clearning mouse_pos")
 		mouse_pos = []
 		
-		
-		
-	
 	rotate(velocity.x * delta / (PI * 16))
 	move_and_slide()
