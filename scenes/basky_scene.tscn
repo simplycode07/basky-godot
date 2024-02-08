@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://be2bie5muvid0"]
+
+[ext_resource type="Script" path="res://scripts/basky.gd" id="1_v7oxl"]
+[ext_resource type="Texture2D" uid="uid://43dpwoelixrt" path="res://assets/basky_32x32.png" id="2_185xd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mr8t"]
+radius = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(68.405, 0)
+script = ExtResource("1_v7oxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_185xd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.275002, 0)
+shape = SubResource("CircleShape2D_3mr8t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
