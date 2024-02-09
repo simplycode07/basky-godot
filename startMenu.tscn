@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://d30a12e4r2sv3"]
+
+[ext_resource type="Script" path="res://scripts/startMenu.gd" id="1_8ucrk"]
+[ext_resource type="Texture2D" uid="uid://43dpwoelixrt" path="res://assets/basky_32x32.png" id="2_nir8b"]
+[ext_resource type="FontFile" uid="uid://3l68tqycsgf0" path="res://assets/fonts/minecraft/MinecraftBold-nMK1.otf" id="3_c2soq"]
+[ext_resource type="FontFile" uid="uid://bek2ke52xlftg" path="res://assets/fonts/minecraft/MinecraftRegular-Bmg3.otf" id="4_52a6q"]
+
+[node name="Control" type="Node"]
+script = ExtResource("1_8ucrk")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -190.0
+offset_right = 263.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -73.0
+offset_right = 172.0
+offset_bottom = 73.0
+grow_vertical = 2
+texture = ExtResource("2_nir8b")
+stretch_mode = 4
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = -60.0
+offset_right = -32.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_c2soq")
+theme_override_font_sizes/font_size = 76
+text = "Basky!"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = 74.0
+offset_right = 175.0
+offset_bottom = 134.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_52a6q")
+theme_override_font_sizes/font_size = 76
+text = "Play"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bek2ke52xlftg"
-path="res://.godot/imported/MinecraftRegular-Bmg3.otf-4c9d23f7a16122f61d7448a54ad5e017.fontdata"
+uid="uid://3l68tqycsgf0"
+path="res://.godot/imported/MinecraftBold-nMK1.otf-3c7ba7742caff53c9e689322e5b655f7.fontdata"
 
 [deps]
 
-source_file="res://assets/MinecraftRegular-Bmg3.otf"
-dest_files=["res://.godot/imported/MinecraftRegular-Bmg3.otf-4c9d23f7a16122f61d7448a54ad5e017.fontdata"]
+source_file="res://assets/fonts/minecraft/MinecraftBold-nMK1.otf"
+dest_files=["res://.godot/imported/MinecraftBold-nMK1.otf-3c7ba7742caff53c9e689322e5b655f7.fontdata"]
 
 [params]
 

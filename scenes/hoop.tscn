@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwj6d856d0vlv" path="res://assets/basketball_hoop_32x32.png" id="1_t5q24"]
 [ext_resource type="Script" path="res://scripts/hoop.gd" id="2_tk82y"]
-[ext_resource type="FontFile" uid="uid://bek2ke52xlftg" path="res://assets/MinecraftRegular-Bmg3.otf" id="3_34606"]
+[ext_resource type="FontFile" uid="uid://bek2ke52xlftg" path="res://assets/fonts/minecraft/MinecraftRegular-Bmg3.otf" id="3_34606"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eoia"]
 size = Vector2(14.0594, 0.792076)

@@ -2,6 +2,8 @@ extends RigidBody2D
 
 var mouse_pos = []
 var radius = 16
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 @onready var line_2d = %Line2D
 @onready var sprite_2d = %Sprite2D
 
@@ -9,10 +11,12 @@ func draw_trajectory(current_mouse_pos, delta) -> void:
 	line_2d.clear_points()
 	var pos = Vector2.ZERO
 	var vel = Vector2((mouse_pos[0][0]-current_mouse_pos[0]) * 8, (mouse_pos[0][1] - current_mouse_pos[1]) * 8)
-	for i in range(10):
-		vel.y += gravity_scale * delta
-		pos += vel * delta
-		line_2d.add_point(pos)
+	
+	if mouse_pos[0] != current_mouse_pos:
+		for i in range(50):
+			vel.y += gravity * delta
+			pos += vel * delta
+			line_2d.add_point(pos)
 	
 
 func _process(delta):
