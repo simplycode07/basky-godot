@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce07q3mle54u8"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_uckn0"]
+[ext_resource type="Texture2D" uid="uid://43dpwoelixrt" path="res://assets/basky_32x32.png" id="2_kn3j0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6x4i1"]
+friction = 0.0
+rough = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5f541"]
+radius = 16.0
+
+[node name="basky" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_6x4i1")
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_uckn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_kn3j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_5f541")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
