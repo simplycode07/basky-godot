@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uat22xx4bt1m"]
+[gd_scene load_steps=6 format=3 uid="uid://uat22xx4bt1m"]
 
 [ext_resource type="Texture2D" uid="uid://dwj6d856d0vlv" path="res://assets/basketball_hoop_32x32.png" id="1_t5q24"]
-[ext_resource type="Script" path="res://scenes/hoop.gd" id="2_4oeh5"]
+[ext_resource type="Script" path="res://scripts/hoop.gd" id="2_tk82y"]
+[ext_resource type="FontFile" uid="uid://bek2ke52xlftg" path="res://assets/MinecraftRegular-Bmg3.otf" id="3_34606"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eoia"]
 size = Vector2(14.0594, 0.792076)
@@ -14,9 +15,10 @@ texture_filter = 1
 position = Vector2(4753, 202)
 scale = Vector2(5.05, 5.05)
 texture = ExtResource("1_t5q24")
-script = ExtResource("2_4oeh5")
+script = ExtResource("2_tk82y")
 
 [node name="ball_leaving" type="Area2D" parent="."]
+position = Vector2(0, 8.915)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball_leaving"]
 position = Vector2(0.297058, -1.38614)
@@ -41,21 +43,23 @@ polygon = PackedVector2Array(8.94995, -1.09535, 8.94995, -5.00734, 8.94995, -5.9
 
 [node name="you_win_screen" type="Label" parent="."]
 unique_name_in_owner = true
-texture_repeat = 1
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -27.5
-offset_right = 4.0
-offset_bottom = -4.5
+offset_left = -239.5
+offset_top = -143.5
+offset_right = 207.5
+offset_bottom = 111.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("3_34606")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="body_entered" from="ball_leaving" to="." method="_on_ball_leaving_body_entered"]
 [connection signal="body_exited" from="ball_leaving" to="." method="_on_ball_leaving_body_exited"]
 [connection signal="body_entered" from="ball_entering" to="." method="_on_ball_entering_body_entered"]

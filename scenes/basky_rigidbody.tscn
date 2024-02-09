@@ -17,6 +17,7 @@ angular_damp_mode = 1
 script = ExtResource("1_uckn0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_kn3j0")
@@ -27,3 +28,6 @@ shape = SubResource("CircleShape2D_5f541")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true

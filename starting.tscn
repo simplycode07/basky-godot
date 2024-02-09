@@ -29,8 +29,9 @@ layer_0/tile_data = PackedInt32Array(1310720, 0, 0, 131221, 0, 0, -131077, 0, 0,
 
 [node name="basky" parent="." instance=ExtResource("3_6vsto")]
 texture_filter = 1
-position = Vector2(4689, 40)
+position = Vector2(157, 237)
 
 [node name="hoop" parent="." instance=ExtResource("2_eiiht")]
 position = Vector2(4697, 254)
 scale = Vector2(5, 5)
+metadata/_edit_lock_ = true
