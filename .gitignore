@@ -1,2 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+./basky_godot.console.exe
+./basky_godot.sh
+./basky_godot.exe
+./basky_godot.x86_64

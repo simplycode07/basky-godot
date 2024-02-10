@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce07q3mle54u8"]
+[gd_scene load_steps=6 format=3 uid="uid://ce07q3mle54u8"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_uckn0"]
 [ext_resource type="Texture2D" uid="uid://43dpwoelixrt" path="res://assets/basky_32x32.png" id="2_kn3j0"]
+[ext_resource type="PackedScene" uid="uid://dilu473nk385j" path="res://scenes/particles/bouce_particles.tscn" id="3_yr3vg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6x4i1"]
 friction = 0.0
@@ -30,4 +31,7 @@ shape = SubResource("CircleShape2D_5f541")
 position_smoothing_enabled = true
 
 [node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+
+[node name="BounceParticles" parent="." instance=ExtResource("3_yr3vg")]
 unique_name_in_owner = true
