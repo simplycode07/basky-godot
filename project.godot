@@ -42,7 +42,6 @@ left_mouse_button={
 
 [physics]
 
-2d/physics_engine="GodotPhysics2D"
 2d/default_gravity=1200.0
 2d/default_linear_damp=0.0
 2d/default_angular_damp=0.0

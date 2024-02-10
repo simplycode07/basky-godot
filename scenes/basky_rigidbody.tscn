@@ -28,6 +28,7 @@ scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_5f541")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
 position_smoothing_enabled = true
 
 [node name="Line2D" type="Line2D" parent="."]
