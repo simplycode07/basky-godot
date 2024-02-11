@@ -13,6 +13,9 @@ radius = 16.0
 
 [node name="basky" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_6x4i1")
+continuous_cd = 1
+max_contacts_reported = 4
+contact_monitor = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_uckn0")
