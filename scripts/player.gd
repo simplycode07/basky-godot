@@ -33,8 +33,9 @@ func _process(delta):
 		
 	if Input.is_action_just_released("left_mouse_button") and len(mouse_pos):
 		mouse_pos.append(DisplayServer.mouse_get_position())
-		linear_velocity.x = (mouse_pos[0][0] - mouse_pos[1][0]) * 8
-		linear_velocity.y = (mouse_pos[0][1] - mouse_pos[1][1]) * 8
+		apply_central_force(Vector2((mouse_pos[0][0] - mouse_pos[1][0]) * 80, (mouse_pos[0][1] - mouse_pos[1][1]) * 80))
+		#linear_velocity.x = (mouse_pos[0][0] - mouse_pos[1][0]) * 8
+		#linear_velocity.y = (mouse_pos[0][1] - mouse_pos[1][1]) * 8
 		
 		line_2d.clear_points()
 		mouse_pos = []
