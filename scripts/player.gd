@@ -41,25 +41,25 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		linear_velocity = Vector2(0, 0)
 		   
-	var collision_info = move_and_collide(linear_velocity * delta)
-	if collision_info:
-		print(linear_velocity)
-		
-		var normal = collision_info.get_normal()
-		linear_velocity = linear_velocity.bounce(normal)
-		if normal[0] == 0:
-			#if linear_velocity.x > 0.1 else 0.0
-			linear_velocity.x *= 0.9 
-			linear_velocity.y *= 0.6
-		else:
-			linear_velocity.x *= 0.6
-		
-		# fix velocity not decreasing below (0, 37)
-		# less than -60 because after bouncing on floor velocity becomes negative
-		if linear_velocity.y < -60:
-			bounce_particles.position = - normal * 40
-			for particles in bounce_particles.get_children():
-				particles.emitting = true
+	#var collision_info = move_and_collide(linear_velocity * delta)
+	#if collision_info:
+		#print(linear_velocity)
+		#
+		#var normal = collision_info.get_normal()
+		#linear_velocity = linear_velocity.bounce(normal)
+		#if normal[0] == 0:
+			##if linear_velocity.x > 0.1 else 0.0
+			#linear_velocity.x *= 0.9 
+			#linear_velocity.y *= 0.6
+		#else:
+			#linear_velocity.x *= 0.6
+		#
+		## fix velocity not decreasing below (0, 37)
+		## less than -60 because after bouncing on floor velocity becomes negative
+		#if linear_velocity.y < -60:
+			#bounce_particles.position = - normal * 40
+			#for particles in bounce_particles.get_children():
+				#particles.emitting = true
 
 	if len(mouse_pos):
 		Engine.time_scale = max(Engine.time_scale - 0.2, 0.2)
@@ -69,3 +69,12 @@ func _process(delta):
 		Engine.time_scale = min(Engine.time_scale + 0.3, 1)
 	
 	sprite_2d.rotate(linear_velocity.x * delta / (PI * radius))
+
+func _physics_process(delta):
+	var collision_info = move_and_collide(linear_velocity * delta)
+	if collision_info:
+		print(linear_velocity)
+		bounce_particles.position = collision_info.get_normal() * -40
+		for particles in bounce_particles.get_children():
+			particles.emitting = true
+	

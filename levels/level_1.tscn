@@ -18,8 +18,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cl3ua")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j6s5n"]
-friction = 0.0
-rough = true
+friction = 0.34
+bounce = 0.6
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(150, 50)
@@ -36,7 +36,9 @@ texture_filter = 1
 position = Vector2(165, 202)
 physics_material_override = SubResource("PhysicsMaterial_j6s5n")
 linear_damp_mode = 0
+linear_damp = 0.5
 angular_damp_mode = 0
+angular_damp = 0.5
 
 [node name="hoop" parent="." instance=ExtResource("2_eiiht")]
 position = Vector2(4697, 254)
