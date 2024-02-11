@@ -18,7 +18,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cl3ua")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j6s5n"]
-friction = 0.34
+friction = 0.0
 bounce = 0.6
 
 [node name="Node2D" type="Node2D"]
