@@ -28,12 +28,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("left_mouse_button") and len(mouse_pos) < 1:
 		mouse_pos.append(DisplayServer.mouse_get_position())
 		counter += 1
-		print("mouse pressed" + str(counter))
+		#print("mouse pressed" + str(counter))
 		line_2d.clear_points()
 		
 	if Input.is_action_just_released("left_mouse_button") and len(mouse_pos):
 		mouse_pos.append(DisplayServer.mouse_get_position())
-		apply_central_force(Vector2((mouse_pos[0][0] - mouse_pos[1][0]) * 80, (mouse_pos[0][1] - mouse_pos[1][1]) * 80))
+		apply_central_impulse(Vector2((mouse_pos[0][0] - mouse_pos[1][0]), (mouse_pos[0][1] - mouse_pos[1][1])) * 9)
 		#linear_velocity.x = (mouse_pos[0][0] - mouse_pos[1][0]) * 8
 		#linear_velocity.y = (mouse_pos[0][1] - mouse_pos[1][1]) * 8
 		
@@ -72,9 +72,9 @@ func _process(delta):
 	sprite_2d.rotate(linear_velocity.x * delta / (PI * radius))
 
 func _physics_process(delta):
-	var collision_info = move_and_collide(linear_velocity * delta)
-	if collision_info:
-		print(linear_velocity)
+	var collision_info = move_and_collide(linear_velocity * delta, true)
+	if collision_info and linear_velocity.length_squared() > 10**2:
+		#print(linear_velocity)
 		bounce_particles.position = collision_info.get_normal() * -40
 		for particles in bounce_particles.get_children():
 			particles.emitting = true
